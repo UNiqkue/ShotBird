@@ -1,0 +1,80 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.ExtCtrls, Vcl.Menus;
+
+type
+  TMainForm = class(TForm)
+    MainMenu1: TMainMenu;
+    ShootTimer: TTimer;
+    TimeTimer: TTimer;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    StatusBar1: TStatusBar;
+    Label1: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure StartGame();
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MainForm: TMainForm;
+   fx,fy: integer; // координаты движущегося объекта
+   n: integer; // количество промахов
+   p: integer; // количество попаданий
+   t: integer; // время до окончания игры
+   TimeForShoot:integer; // время для совершения выстрела
+   Level:Integer; // уровень
+   RunGame:Boolean; // переменная для паузы и возобновления игры
+   s: TStringList; // переменная для сохранения уровня игры в текстовый файл
+
+implementation
+
+{$R *.dfm}
+
+uses Unit2;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+DoubleBuffered:=True;
+RunGame:=False;
+Randomize;
+end;
+
+procedure TMainForm.StartGame();
+begin
+ShootTimer.Enabled := true; // включаем таймер выстрелов
+TimeTimer.Enabled := true; // запускаем отсчет времени
+n:=0; // обнуляем количество промахов
+p:=0; // обнуляем количество попаданий
+t:=100; // устанавливаем начальное значение для отсчета времени
+// устанавливаем исходное положение рисунка
+fx:=100;
+fy:=100;
+// Задаем текст панели
+StatusBar1.Panels[0].text:='Уровень: '+IntToStr(Level);// указываем уровень игры
+StatusBar1.Panels[1].text:='Попаданий: '+IntToStr(p); // указываем количество попаданий
+StatusBar1.Panels[2].text:='Промахов: '+IntToStr(n);  // указываем количество промахов
+StatusBar1.Panels[3].text:='Время: '+IntToStr(t); // выводим отсчет времени до конца игры
+RunGame:=True; // игра запущена
+end;
+
+
+
+
+end.

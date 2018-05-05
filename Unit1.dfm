@@ -1,0 +1,110 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Cursor = crCross
+  BorderStyle = bsSingle
+  Caption = 'MainForm'
+  ClientHeight = 330
+  ClientWidth = 490
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnMouseDown = FormMouseDown
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 138
+    Top = 22
+    Width = 240
+    Height = 25
+    Caption = #1048#1075#1088#1072' '#1087#1088#1080#1086#1089#1090#1072#1085#1086#1074#1083#1077#1085#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clYellow
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Shape1: TShape
+    Left = 208
+    Top = 120
+    Width = 32
+    Height = 32
+    Brush.Color = clRed
+    Shape = stCircle
+    OnMouseDown = Shape1MouseDown
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 310
+    Width = 490
+    Height = 20
+    Panels = <
+      item
+        Width = 120
+      end
+      item
+        Width = 120
+      end
+      item
+        Width = 120
+      end
+      item
+        Width = 120
+      end>
+  end
+  object MainMenu1: TMainMenu
+    Left = 456
+    object N1: TMenuItem
+      Caption = #1048#1075#1088#1072' '
+      object N3: TMenuItem
+        Caption = #1053#1086#1074#1072#1103' '#1080#1075#1088#1072
+        OnClick = N3Click
+      end
+      object N4: TMenuItem
+        Caption = #1055#1088#1080#1086#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1080#1075#1088#1091
+        OnClick = N4Click
+      end
+      object N5: TMenuItem
+        Caption = #1055#1088#1086#1076#1086#1083#1078#1080#1090#1100' '#1080#1075#1088#1091
+        OnClick = N5Click
+      end
+      object N6: TMenuItem
+        Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1080#1075#1088#1091
+        OnClick = N6Click
+      end
+      object N7: TMenuItem
+        Caption = #1042#1099#1081#1090#1080' '#1080#1079' '#1080#1075#1088#1099
+        OnClick = N7Click
+      end
+    end
+    object N2: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+      object N8: TMenuItem
+        Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      end
+      object N9: TMenuItem
+        Caption = #1055#1088#1072#1074#1080#1083#1072'  '#1080#1075#1088#1099
+        OnClick = N9Click
+      end
+    end
+  end
+  object ShootTimer: TTimer
+    OnTimer = ShootTimerTimer
+    Left = 448
+    Top = 56
+  end
+  object TimeTimer: TTimer
+    OnTimer = TimeTimerTimer
+    Left = 448
+    Top = 112
+  end
+end

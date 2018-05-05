@@ -1,0 +1,64 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.ExtCtrls, Vcl.Menus;
+
+type
+  TMainForm = class(TForm)
+    MainMenu1: TMainMenu;
+    ShootTimer: TTimer;
+    TimeTimer: TTimer;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    StatusBar1: TStatusBar;
+    Label1: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure N2Click(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MainForm: TMainForm;
+   fx,fy: integer; // координаты движущегося объекта
+   n: integer; // количество промахов
+   p: integer; // количество попаданий
+   t: integer; // время до окончания игры
+   TimeForShoot:integer; // время для совершения выстрела
+   Level:Integer; // уровень
+   RunGame:Boolean; // переменная для паузы и возобновления игры
+   s: TStringList; // переменная для сохранения уровня игры в текстовый файл
+
+implementation
+
+{$R *.dfm}
+
+uses Unit2;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+DoubleBuffered:=True;
+RunGame:=False;
+Randomize;
+end;
+
+
+
+
+
+
+end.
